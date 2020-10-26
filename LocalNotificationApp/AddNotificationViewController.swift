@@ -10,17 +10,24 @@ import UserNotifications
 
 class AddNotificationViewController: UIViewController {
 
+    // MARK: @IBOutlet
+    // 通知を追加する際に押すボタンと関連づける
     @IBOutlet var addNotificationButton: UIButton!
+    // 通知を白化させる日付を選択するDatePickerと関連づける
     @IBOutlet var notificationDatePicker: UIDatePicker!
+    // 通知に表示するテキストを入力するためのテキストフィールドと関連づける
     @IBOutlet var titleTextField: UITextField!
-    
+    // 追加画面を閉じてカレンダー画面に戻ることができるボタンと関連づける
+    @IBOutlet var backButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // MARK: UIデザイン
+        // backButtonを角丸にする
+        backButton.layer.cornerRadius = 8
         // addNotificationButtonを角丸にする
         addNotificationButton.layer.cornerRadius = 8
-        // addNotificationButtonに枠線をつける
+        // addNotificationButtonに枠線をつける（borderWidth ... 線の太さ） (borderColor ... 線の色)
         addNotificationButton.layer.borderWidth = 1
         addNotificationButton.layer.borderColor = UIColor.systemBlue.cgColor
     }
@@ -35,14 +42,14 @@ class AddNotificationViewController: UIViewController {
         // MARK: 通知をいつ発動するかを設定
         // カレンダークラスを作成
         let calendar = Calendar.current
-        let trigger = UNCalendarNotificationTrigger(dateMatching: calendar.dateComponents(in: .current, from: notificationDate), repeats: false)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: calendar.dateComponents([.year, .month, .day, .hour, .minute], from: notificationDate), repeats: false)
         // MARK: 通知の中身を設定
         let content = UNMutableNotificationContent()
         content.title = notificationTitle
+        content.sound = UNNotificationSound.default
         content.badge = 1
         // MARK: 通知のリクエストを作成
-        let request = UNNotificationRequest(
-            identifier: "Notification: \(notificationTitle)", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         
         // MARK: 通知のリクエストを実際に登録する
         UNUserNotificationCenter.current().add(request) { (error: Error?) in
@@ -58,6 +65,11 @@ class AddNotificationViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    // backメソッド: バツボタンを押した際に呼ばれる
+    @IBAction func back() {
+        dismiss(animated: true, completion: nil)
     }
 }
 

@@ -8,26 +8,31 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add Notification View Controller-->
+        <!--通知の追加-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="AddNotificationViewController" customModule="LocalNotificationApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="HcK-bq-pVn">
-                                <rect key="frame" x="16" y="40" width="382" height="322"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="HcK-bq-pVn">
+                                <rect key="frame" x="16" y="106" width="382" height="322"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="通知のタイトルを入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yAB-3R-057">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="0Gj-tf-ZPk">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="c8R-7y-boZ">
                                         <rect key="frame" x="0.0" y="50" width="382" height="216"/>
-                                    </datePicker>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NR5-XQ-0yP">
+                                        <subviews>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="0Gj-tf-ZPk">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                            </datePicker>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NR5-XQ-0yP">
                                         <rect key="frame" x="0.0" y="282" width="382" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7yp-bY-cLY">
@@ -43,17 +48,34 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzh-aj-F3V">
+                                <rect key="frame" x="16" y="52" width="37" height="38"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <state key="normal" image="xmark" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                    </preferredSymbolConfiguration>
+                                </state>
+                                <connections>
+                                    <action selector="back" destination="BYZ-38-t0r" eventType="touchUpInside" id="j2l-bt-NY3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="HcK-bq-pVn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="EAM-Ni-wJw"/>
-                            <constraint firstItem="HcK-bq-pVn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="M2E-aN-XQL"/>
+                            <constraint firstItem="HcK-bq-pVn" firstAttribute="top" secondItem="Lzh-aj-F3V" secondAttribute="bottom" constant="16" id="EO2-Q3-rub"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HcK-bq-pVn" secondAttribute="trailing" constant="16" id="b8Q-Kc-3xo"/>
+                            <constraint firstItem="Lzh-aj-F3V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="jgy-vN-QTT"/>
+                            <constraint firstItem="Lzh-aj-F3V" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="qIZ-Rg-F7b"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="通知の追加" id="8xs-d5-XAa"/>
                     <connections>
                         <outlet property="addNotificationButton" destination="7yp-bY-cLY" id="daS-5G-Y7V"/>
+                        <outlet property="backButton" destination="Lzh-aj-F3V" id="SL3-Mq-1Fz"/>
                         <outlet property="notificationDatePicker" destination="0Gj-tf-ZPk" id="C4c-Oq-yBq"/>
                         <outlet property="titleTextField" destination="yAB-3R-057" id="IuY-Dt-fuy"/>
                     </connections>
@@ -76,10 +98,42 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EGS-1i-wWX" customClass="FSCalendar">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="387"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="eventDefaultColor">
+                                                <color key="value" systemColor="systemYellowColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vVD-jY-gXE">
                                         <rect key="frame" x="0.0" y="387" width="414" height="387"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="f09-8r-dta" detailTextLabel="kEQ-ju-pT9" style="IBUITableViewCellStyleValue1" id="yA2-3U-xnI">
+                                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yA2-3U-xnI" id="KHR-mA-uyr">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f09-8r-dta">
+                                                            <rect key="frame" x="20" y="12" width="33" height="20.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kEQ-ju-pT9">
+                                                            <rect key="frame" x="350" y="12" width="44" height="20.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <sections/>
                                     </tableView>
                                 </subviews>
                             </stackView>
@@ -96,10 +150,14 @@
                     <navigationItem key="navigationItem" title="通知カレンダー" id="9kD-3m-kpQ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="4u2-kb-8N5">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" id="R4o-J7-094"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="R4o-J7-094"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="fsCalendar" destination="EGS-1i-wWX" id="Z8X-yr-2eB"/>
+                        <outlet property="tableView" destination="vVD-jY-gXE" id="mbY-L3-nDz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e8c-wP-ILS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -125,8 +183,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

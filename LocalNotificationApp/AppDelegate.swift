@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted: Bool, error: Error?) in
             print("許可されたか: \(granted)")
         }
+        // MARK: UNUserNotificationCenterDelegateを指定する
+        UNUserNotificationCenter.current().delegate = self
         return true
     }
 
@@ -29,10 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // MARK: UNUserNotificationDelegateを実装する
     // フォアグラウンドで通知を受け取った際に呼ばれるメソッド
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .list, .sound, .badge])
     }
     
     // バックグランドで通知を受け取った際に呼ばれるメソッド
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
     }
 }
 

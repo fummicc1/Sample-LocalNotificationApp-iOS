@@ -1,0 +1,18 @@
+
+/* Class = "UIButton"; normalTitle = "通知を追加する"; ObjectID = "7yp-bY-cLY"; */
+"7yp-bY-cLY.normalTitle" = "通知を追加する";
+
+/* Class = "UINavigationItem"; title = "通知の追加"; ObjectID = "8xs-d5-XAa"; */
+"8xs-d5-XAa.title" = "通知の追加";
+
+/* Class = "UINavigationItem"; title = "通知カレンダー"; ObjectID = "9kD-3m-kpQ"; */
+"9kD-3m-kpQ.title" = "通知カレンダー";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "f09-8r-dta"; */
+"f09-8r-dta.text" = "Title";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "kEQ-ju-pT9"; */
+"kEQ-ju-pT9.text" = "Detail";
+
+/* Class = "UITextField"; placeholder = "通知のタイトルを入力"; ObjectID = "yAB-3R-057"; */
+"yAB-3R-057.placeholder" = "通知のタイトルを入力";

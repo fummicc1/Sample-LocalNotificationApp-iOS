@@ -20,6 +20,8 @@
 /* Begin PBXFileReference section */
 		2AECC73CF82A34E056E030E8 /* Pods_LocalNotificationApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocalNotificationApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B387E6A4618DDA586DA030B4 /* Pods-LocalNotificationApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocalNotificationApp.debug.xcconfig"; path = "Target Support Files/Pods-LocalNotificationApp/Pods-LocalNotificationApp.debug.xcconfig"; sourceTree = "<group>"; };
+		D3719E0725472D9D009C64E0 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		D3719E0825472D9D009C64E0 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		D37C92E02546C8B5001A96BE /* LocalNotificationApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalNotificationApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D37C92E32546C8B5001A96BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D37C92E52546C8B5001A96BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,14 +84,14 @@
 		D37C92E22546C8B5001A96BE /* LocalNotificationApp */ = {
 			isa = PBXGroup;
 			children = (
-				D37C92E32546C8B5001A96BE /* AppDelegate.swift */,
-				D37C92E52546C8B5001A96BE /* SceneDelegate.swift */,
-				D3B61DC72546CE2200513B56 /* CalendarViewController.swift */,
+				D37C92F12546C8B9001A96BE /* Info.plist */,
 				D37C92E72546C8B5001A96BE /* AddNotificationViewController.swift */,
-				D37C92E92546C8B5001A96BE /* Main.storyboard */,
+				D37C92E32546C8B5001A96BE /* AppDelegate.swift */,
+				D3B61DC72546CE2200513B56 /* CalendarViewController.swift */,
+				D37C92E52546C8B5001A96BE /* SceneDelegate.swift */,
 				D37C92EC2546C8B9001A96BE /* Assets.xcassets */,
 				D37C92EE2546C8B9001A96BE /* LaunchScreen.storyboard */,
-				D37C92F12546C8B9001A96BE /* Info.plist */,
+				D37C92E92546C8B5001A96BE /* Main.storyboard */,
 			);
 			path = LocalNotificationApp;
 			sourceTree = "<group>";
@@ -137,6 +139,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = D37C92D72546C8B4001A96BE;
 			productRefGroup = D37C92E12546C8B5001A96BE /* Products */;
@@ -222,6 +225,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D37C92EA2546C8B5001A96BE /* Base */,
+				D3719E0725472D9D009C64E0 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -230,6 +234,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D37C92EF2546C8B9001A96BE /* Base */,
+				D3719E0825472D9D009C64E0 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -302,6 +308,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -362,6 +369,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2X6AD4W323;
 				INFOPLIST_FILE = LocalNotificationApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -382,6 +390,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2X6AD4W323;
 				INFOPLIST_FILE = LocalNotificationApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
