@@ -3,27 +3,33 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A4F29576C830E06227312EC /* Pods_LocalNotificationApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AECC73CF82A34E056E030E8 /* Pods_LocalNotificationApp.framework */; };
 		D37C92E42546C8B5001A96BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C92E32546C8B5001A96BE /* AppDelegate.swift */; };
 		D37C92E62546C8B5001A96BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C92E52546C8B5001A96BE /* SceneDelegate.swift */; };
-		D37C92E82546C8B5001A96BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C92E72546C8B5001A96BE /* ViewController.swift */; };
+		D37C92E82546C8B5001A96BE /* AddNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C92E72546C8B5001A96BE /* AddNotificationViewController.swift */; };
 		D37C92EB2546C8B5001A96BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D37C92E92546C8B5001A96BE /* Main.storyboard */; };
 		D37C92ED2546C8B9001A96BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D37C92EC2546C8B9001A96BE /* Assets.xcassets */; };
 		D37C92F02546C8B9001A96BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D37C92EE2546C8B9001A96BE /* LaunchScreen.storyboard */; };
+		D3B61DC82546CE2200513B56 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B61DC72546CE2200513B56 /* CalendarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2AECC73CF82A34E056E030E8 /* Pods_LocalNotificationApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocalNotificationApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B387E6A4618DDA586DA030B4 /* Pods-LocalNotificationApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocalNotificationApp.debug.xcconfig"; path = "Target Support Files/Pods-LocalNotificationApp/Pods-LocalNotificationApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D37C92E02546C8B5001A96BE /* LocalNotificationApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalNotificationApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D37C92E32546C8B5001A96BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D37C92E52546C8B5001A96BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D37C92E72546C8B5001A96BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D37C92E72546C8B5001A96BE /* AddNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotificationViewController.swift; sourceTree = "<group>"; };
 		D37C92EA2546C8B5001A96BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D37C92EC2546C8B9001A96BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D37C92EF2546C8B9001A96BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D37C92F12546C8B9001A96BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3B61DC72546CE2200513B56 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		E93B1EFA4D8844F0C50938B9 /* Pods-LocalNotificationApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocalNotificationApp.release.xcconfig"; path = "Target Support Files/Pods-LocalNotificationApp/Pods-LocalNotificationApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A4F29576C830E06227312EC /* Pods_LocalNotificationApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		793724E511ABD1C5EDD8F31F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B387E6A4618DDA586DA030B4 /* Pods-LocalNotificationApp.debug.xcconfig */,
+				E93B1EFA4D8844F0C50938B9 /* Pods-LocalNotificationApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8BFBE80B99500936B65ED9E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2AECC73CF82A34E056E030E8 /* Pods_LocalNotificationApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D37C92D72546C8B4001A96BE = {
 			isa = PBXGroup;
 			children = (
 				D37C92E22546C8B5001A96BE /* LocalNotificationApp */,
 				D37C92E12546C8B5001A96BE /* Products */,
+				793724E511ABD1C5EDD8F31F /* Pods */,
+				8BFBE80B99500936B65ED9E2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,7 +84,8 @@
 			children = (
 				D37C92E32546C8B5001A96BE /* AppDelegate.swift */,
 				D37C92E52546C8B5001A96BE /* SceneDelegate.swift */,
-				D37C92E72546C8B5001A96BE /* ViewController.swift */,
+				D3B61DC72546CE2200513B56 /* CalendarViewController.swift */,
+				D37C92E72546C8B5001A96BE /* AddNotificationViewController.swift */,
 				D37C92E92546C8B5001A96BE /* Main.storyboard */,
 				D37C92EC2546C8B9001A96BE /* Assets.xcassets */,
 				D37C92EE2546C8B9001A96BE /* LaunchScreen.storyboard */,
@@ -74,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D37C92F42546C8B9001A96BE /* Build configuration list for PBXNativeTarget "LocalNotificationApp" */;
 			buildPhases = (
+				FE8DF91C19C15444FFC54E8E /* [CP] Check Pods Manifest.lock */,
 				D37C92DC2546C8B4001A96BE /* Sources */,
 				D37C92DD2546C8B4001A96BE /* Frameworks */,
 				D37C92DE2546C8B4001A96BE /* Resources */,
+				E9A761C26F8F9EE86D9D4D81 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,12 +161,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E9A761C26F8F9EE86D9D4D81 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LocalNotificationApp/Pods-LocalNotificationApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LocalNotificationApp/Pods-LocalNotificationApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LocalNotificationApp/Pods-LocalNotificationApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE8DF91C19C15444FFC54E8E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LocalNotificationApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D37C92DC2546C8B4001A96BE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D37C92E82546C8B5001A96BE /* ViewController.swift in Sources */,
+				D3B61DC82546CE2200513B56 /* CalendarViewController.swift in Sources */,
+				D37C92E82546C8B5001A96BE /* AddNotificationViewController.swift in Sources */,
 				D37C92E42546C8B5001A96BE /* AppDelegate.swift in Sources */,
 				D37C92E62546C8B5001A96BE /* SceneDelegate.swift in Sources */,
 			);
@@ -283,6 +355,7 @@
 		};
 		D37C92F52546C8B9001A96BE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B387E6A4618DDA586DA030B4 /* Pods-LocalNotificationApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +375,7 @@
 		};
 		D37C92F62546C8B9001A96BE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E93B1EFA4D8844F0C50938B9 /* Pods-LocalNotificationApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
