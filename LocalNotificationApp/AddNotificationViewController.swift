@@ -41,15 +41,15 @@ class AddNotificationViewController: UIViewController {
         let notificationTitle: String = titleTextField.text!
         // MARK: 通知をいつ発動するかを設定
         // カレンダークラスを作成
-        let calendar = Calendar.current
-        let trigger = UNCalendarNotificationTrigger(dateMatching: calendar.dateComponents([.year, .month, .day, .hour, .minute], from: notificationDate), repeats: false)
+        let calendar: Calendar = Calendar.current
+        let trigger: UNCalendarNotificationTrigger = UNCalendarNotificationTrigger(dateMatching: calendar.dateComponents([.year, .month, .day, .hour, .minute], from: notificationDate), repeats: false)
         // MARK: 通知の中身を設定
-        let content = UNMutableNotificationContent()
+        let content: UNMutableNotificationContent = UNMutableNotificationContent()
         content.title = notificationTitle
         content.sound = UNNotificationSound.default
         content.badge = 1
         // MARK: 通知のリクエストを作成
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        let request: UNNotificationRequest = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         
         // MARK: 通知のリクエストを実際に登録する
         UNUserNotificationCenter.current().add(request) { (error: Error?) in

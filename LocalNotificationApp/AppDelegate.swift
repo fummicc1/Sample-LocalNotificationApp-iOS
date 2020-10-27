@@ -31,7 +31,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // MARK: UNUserNotificationDelegateを実装する
     // フォアグラウンドで通知を受け取った際に呼ばれるメソッド
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.banner, .list, .sound, .badge])
+        completionHandler(
+            [
+                UNNotificationPresentationOptions.banner,
+                UNNotificationPresentationOptions.list,
+                UNNotificationPresentationOptions.sound,
+                UNNotificationPresentationOptions.badge
+            ]
+        )
     }
     
     // バックグランドで通知を受け取った際に呼ばれるメソッド
