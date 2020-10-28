@@ -2,32 +2,32 @@
 
 ## はじめに
 
-この記事ではiOSアプリでプッシュ通知について説明します。
+この記事では iOS アプリでプッシュ通知について説明します。
 
 ## これから学ぶ知識
 
 - 通知とは
-- AppDelegateについて
-- UNUserNotificationCenterについて
+- AppDelegate について
+- UNUserNotificationCenter について
 - 具体的な実装方法
 
 ## 通知とは
 
 ### 概要
 
-スマートフォンを使っていると1日に1度はみることのある**通知**は、**ユーザーがアプリを開いていなくてもアプリに関する情報を伝えられる**というメリットが強力です。
+スマートフォンを使っていると 1 日に 1 度はみることのある**通知**は、**ユーザーがアプリを開いていなくてもアプリに関する情報を伝えられる**というメリットが強力です。
 
 例えば、アラームアプリはユーザーがアプリを開いていなくてもその時刻が来たことを適切に伝えてくれます。
 
-また、通知にはいくつかの種類がありますが、よく使われるのは以下の3つです。
+また、通知にはいくつかの種類がありますが、よく使われるのは以下の 3 つです。
 
-- アラート（バナーとリストの2種類がある）
+- アラート（バナーとリストの 2 種類がある）
 
 ![%5BiOS%20Swift%5D%20%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E9%80%9A%E7%9F%A5%E3%82%92%E3%82%84%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B%20a2b8640e310d4b37adebe333b6ccd484/IMG_0465.jpg](%5BiOS%20Swift%5D%20%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E9%80%9A%E7%9F%A5%E3%82%92%E3%82%84%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B%20a2b8640e310d4b37adebe333b6ccd484/IMG_0465.jpg)
 
 - バッジ
 
-    ![%5BiOS%20Swift%5D%20%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E9%80%9A%E7%9F%A5%E3%82%92%E3%82%84%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B%20a2b8640e310d4b37adebe333b6ccd484/IMG_0464.jpg](%5BiOS%20Swift%5D%20%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E9%80%9A%E7%9F%A5%E3%82%92%E3%82%84%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B%20a2b8640e310d4b37adebe333b6ccd484/IMG_0464.jpg)
+  ![%5BiOS%20Swift%5D%20%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E9%80%9A%E7%9F%A5%E3%82%92%E3%82%84%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B%20a2b8640e310d4b37adebe333b6ccd484/IMG_0464.jpg](%5BiOS%20Swift%5D%20%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E9%80%9A%E7%9F%A5%E3%82%92%E3%82%84%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B%20a2b8640e310d4b37adebe333b6ccd484/IMG_0464.jpg)
 
 - サウンド
 
@@ -37,7 +37,7 @@
 
 実は通知を受け取ることはいつでもできても、プログラム上では通知を受け取った際のアプリの状態によって処理が変わってきます。
 
-そこで、通知と紐付けて、iOSアプリケーションにおけるライフサイクルを確認しましょう。
+そこで、通知と紐付けて、iOS アプリケーションにおけるライフサイクルを確認しましょう。
 
 ライフサイクル ... 生まれてから消えるまでの過程のこと
 
@@ -45,7 +45,7 @@
 
 アプリケーションが画面上に表示されている状態のことを指します。
 
-`Active` / `In Active` の2種類に細かく分けられます。
+`Active` / `In Active` の 2 種類に細かく分けられます。
 
 - バックグラウンド（Background）
 
@@ -76,51 +76,50 @@ UNUserNotificationCenter.current().requestAuthorization([.alert, .badge, .sound]
 
 設定した時刻になり、ユーザーが通知を受信したときの処理をする必要があります。
 
-`UNUserNotificationCenterDelegate`に準拠した上で、以下の2つのメソッドを実装する必要があります。
+`UNUserNotificationCenterDelegate`に準拠した上で、以下の 2 つのメソッドを実装する必要があります。
 
 ```swift
 class ClassA: UNUserNotificationCenterDelegate {
-		// フォアグラウンドの状態でプッシュ通知を受信した際に呼ばれるメソッド
-		func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-				completionHandler([.banner, .list])
-		}
-		
-		// バックグランドの状態でプッシュ通知を受信した際に呼ばれるメソッド
-		func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-				completionHandler()
-		}
+	// フォアグラウンドの状態でプッシュ通知を受信した際に呼ばれるメソッド
+	func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+		completionHandler([.banner, .list])
+	}
+
+	// バックグランドの状態でプッシュ通知を受信した際に呼ばれるメソッド
+	func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+		completionHandler()
+	}
 }
 ```
 
 通知を受け取った際に、アプリが画面に表示されている（フォアグラウンド）か、そうではない（バックグランド）かで、別のメソッドを実装する必要があることが分かると思います。
 
-頭にある`ClassA` は例で、実際には以下のように`AppDelegate` が`UNUserNotificationCenterDelegate`を準拠して2つのメソッドを実装します。
+頭にある`ClassA` は例で、実際には以下のように`AppDelegate` が`UNUserNotificationCenterDelegate`を準拠して 2 つのメソッドを実装します。
 
 ```swift
 extension AppDelegate: UNUserNotificationCenterDelegate {
-		// フォアグラウンドの状態でプッシュ通知を受信した際に呼ばれるメソッド
-		func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-				completionHandler([.banner, .list])
-		}
-		
-		// バックグランドの状態でプッシュ通知を受信した際に呼ばれるメソッド
-		func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-				completionHandler()
-		}
+    // フォアグラウンドの状態でプッシュ通知を受信した際に呼ばれるメソッド
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+		completionHandler([.banner, .list])
+	}
+	// バックグランドの状態でプッシュ通知を受信した際に呼ばれるメソッド
+	func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+		completionHandler()
+	}
 }
 ```
 
-もう一つ、AppDelegateについての理解も必要なので確認しましょう。
+もう一つ、AppDelegate についての理解も必要なので確認しましょう。
 
 ---
 
-## AppDelegateについて
+## AppDelegate について
 
-AppDelegateとは`@UIApplicationMain` の属性をもつクラスで、アプリごとに1つのみ存在します。
+AppDelegate とは`@UIApplicationMain` の属性をもつクラスで、アプリごとに 1 つのみ存在します。
 
 ---
 
-## UNUserNotificationCenterについて
+## UNUserNotificationCenter について
 
 通知の追加や削除などの処理や通知の許可などが実装されたクラスです。
 
@@ -134,4 +133,4 @@ AppDelegateとは`@UIApplicationMain` の属性をもつクラスで、アプリ
 
 - [GitHub](https://github.com/fummicc1-lit/Sample-LocalNotificationApp-iOS)
 
-![demo](./[iOS Swift] ローカル通知をやってみる a2b8640e310d4b37adebe333b6ccd484/demo.mov)
+![demo](%5BiOS%20Swift%5D%20%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E9%80%9A%E7%9F%A5%E3%82%92%E3%82%84%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B%20a2b8640e310d4b37adebe333b6ccd484/demo.mov)
