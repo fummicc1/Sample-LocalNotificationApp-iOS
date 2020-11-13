@@ -14,7 +14,7 @@ import UserNotifications
 class CalendarViewController: UIViewController, FSCalendarDataSource, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: @IBOutlet
-    // FScalendar ... カレンダーをいい感じに表示してくれるライブラリ
+    // FScalendar ... カレンダーをいい感じに表示してくれるUIView
     // Storyboard上に配置したFSCalendarクラスのビューと関連づけをする
     @IBOutlet var fsCalendar: FSCalendar!
     // 日付によらず全てのまだ完了していない通知を一覧で表示するTableViewと関連づけする
